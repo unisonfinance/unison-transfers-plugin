@@ -23,5 +23,6 @@
     "australia",
     "international visitors"
   ],
-  "repository": "https://github.com/unisonfinance/unison-transfers-plugin"
+  "repository": "https://github.com/unisonfinance/unison-transfers-plugin",
+  "privacyPolicyUrl": "https://www.unisontransfers.com.au/privacy"
 }
