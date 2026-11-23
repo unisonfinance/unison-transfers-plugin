@@ -1,0 +1,115 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "unison-transfers",
+  "version": "2.0.0",
+  "description": "Prices, routes and booking links for Unison Transfers private airport, cruise terminal and chauffeur transfers across Brisbane, the Gold Coast, the Sunshine Coast, Noosa, Toowoomba, Byron Bay and Northern NSW, Australia.",
+  "author": {
+    "name": "Brazaustra Pty Ltd",
+    "email": "bookings@unisontransfers.com.au",
+    "url": "https://www.unisontransfers.com.au"
+  },
+  "homepage": "https://mcp.unisontransfers.com.au",
+  "keywords": [
+    "airport transfer",
+    "private transfer",
+    "chauffeur",
+    "brisbane airport",
+    "gold coast airport",
+    "cruise terminal",
+    "gold coast",
+    "brisbane",
+    "sunshine coast",
+    "noosa",
+    "byron bay",
+    "toowoomba",
+    "travel"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Unison Transfers",
+        "shortDescription": "Brisbane, Gold Coast transfers",
+        "longDescription": "Unison Transfers is a licensed private chauffeur and airport transfer operator in South East Queensland and Northern NSW, Australia.\n\nAsk for a transfer between any two places in the region and the app prices it for the date, time and group. It covers Brisbane Airport (BNE), Gold Coast Airport (OOL, Coolangatta), Sunshine Coast Airport (MCY), Ballina Byron Airport (BNK) and the Brisbane International Cruise Terminal, plus Brisbane CBD, South Bank, Fortitude Valley and the Brisbane suburbs and hotels, Surfers Paradise, Broadbeach, Burleigh Heads and the Gold Coast suburbs, the theme parks, Tamborine Mountain, Ipswich, Toowoomba, the Sunshine Coast, Noosa, Byron Bay, Ballina, Kingscliff, Casuarina and the Tweed Coast.\n\nWhat it does:\n- Prices a trip for the date, time, number of passengers and suitcases: each vehicle (executive sedan up to 3 passengers, Mercedes-Benz V-Class up to 7) with its price per vehicle in AUD, drive time and distance, shown as a quote card.\n- Plans an airport pickup from a flight time: when the car should come for an arrival or a departure, with the price.\n- Lists the routes served from or to a place, such as everywhere from Brisbane Airport or the cruise terminal, with starting prices and route pages.\n- Gives the link to the operator's online booking form with the trip details, or to its quote request form for groups over 7, several stops, hourly hire, weddings and events.\n- Explains what every transfer includes (meet and greet with a name board, free waiting, free child seats, tolls and GST included), the cancellation policy and contact details.\n\nLimitations: prices for a trip without a date and time are weekday daytime prices; nights, weekends and some public holidays cost more, and the final price is shown in the booking form before payment. The app does not book, take payment or collect personal details in the chat: the traveller books and pays on the Unison Transfers website. Trips that start and end in New South Wales cannot be booked. No sign-in is needed.",
+        "developerName": "Brazaustra Pty Ltd",
+        "category": "Travel",
+        "capabilities": [
+          "Live trip prices per vehicle",
+          "Airport pickup planning from a flight",
+          "Routes from or to any place",
+          "Cruise terminal transfers",
+          "Booking and quote request links",
+          "Service area, vehicles and policies"
+        ],
+        "websiteURL": "https://www.unisontransfers.com.au",
+        "supportURL": "https://www.unisontransfers.com.au/contact",
+        "privacyPolicyURL": "https://www.unisontransfers.com.au/privacy",
+        "termsOfServiceURL": "https://www.unisontransfers.com.au/terms-conditions",
+        "defaultPrompt": [
+          "How much is a private transfer from Brisbane Airport to Surfers Paradise for 2 people?",
+          "I land at Gold Coast Airport at 3:40pm on Friday and need to get to Byron Bay with 4 people.",
+          "Price a transfer from the Brisbane cruise terminal to Brisbane Airport next Saturday morning."
+        ],
+        "brandColor": "#C40000",
+        "brandColorDark": "#FF5A52",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Live price for an airport route",
+              "prompt": "How much is a private transfer from Brisbane Airport to Surfers Paradise for 2 people with 2 bags?",
+              "tools_triggered": "get_transfer_quote",
+              "expected_behavior": "Shows a quote card for Brisbane Airport to Surfers Paradise with the executive sedan and Mercedes-Benz V-Class prices per vehicle in AUD, the drive time and distance, says it is a weekday daytime price with the final price shown in the booking form, and offers the Book this trip link."
+            },
+            {
+              "description": "Airport pickup planned from a flight",
+              "prompt": "My flight lands at Gold Coast Airport at 15:40 on a weekday and we are 4 people going to Byron Bay. When should the car come and how much is it?",
+              "tools_triggered": "plan_airport_transfer",
+              "expected_behavior": "Suggests a 15:40 pickup at the landing time, explains the chauffeur tracks the flight and waits free of charge, shows the V-Class price per vehicle for 4 passengers to Byron Bay and gives the booking link."
+            },
+            {
+              "description": "Routes served from the cruise terminal",
+              "prompt": "Where can I get a private transfer to from the Brisbane cruise terminal?",
+              "tools_triggered": "find_transfer_routes",
+              "expected_behavior": "Lists destinations from the Brisbane International Cruise Terminal (for example Brisbane Airport, Brisbane City, Surfers Paradise) with starting prices per vehicle, drive times and route page links."
+            },
+            {
+              "description": "Quote request for a large group event",
+              "prompt": "I need transport for 12 wedding guests from Brisbane to Noosa and back on 14 March.",
+              "tools_triggered": "get_quote_request_link",
+              "expected_behavior": "Gives the Unison Transfers quote request link with a summary of the trip (Brisbane to Noosa, 14 March, 12 passengers, return trip) and says the team replies with an exact price. Nothing is charged."
+            },
+            {
+              "description": "Service information and cancellation policy",
+              "prompt": "What does a Unison Transfers airport transfer include and what is the cancellation policy?",
+              "tools_triggered": "get_service_info",
+              "expected_behavior": "Lists what is included (meet and greet with a name board, free waiting 60 minutes international and 45 domestic, free child seats, tolls and GST included), the vehicles, the coverage area, the NSW licence rule, the cancellation policy (full refund more than 24 hours before pickup) and contact details."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Route outside the service area",
+              "prompt": "Book me a transfer from Sydney Airport to Bondi Beach."
+            },
+            {
+              "description": "Payment details in chat",
+              "prompt": "Here is my credit card number, please charge it and confirm my transfer now."
+            },
+            {
+              "description": "Unrelated travel request",
+              "prompt": "Find me a cheap flight from Brisbane to Bali."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The app does not sell, take payments or check out in ChatGPT. It shows the operator's prices and links to the operator's own website, where the traveller books and pays.",
+        "demo_recording_url": "https://mcp.unisontransfers.com.au/review/unison-transfers-chatgpt-demo.mp4"
+      },
+      "publication": {
+        "release_notes": "Version 2: live prices for any trip in South East Queensland and Northern NSW (date, time, passengers and bags), a quote card, airport pickup planning from a flight, routes from or to any place including the Brisbane cruise terminal, five skills, and a new logo."
+      }
+    }
+  }
+}

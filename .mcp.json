@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "unison-transfers": {
+      "type": "http",
+      "url": "https://mcp.unisontransfers.com.au/mcp"
+    }
+  }
+}

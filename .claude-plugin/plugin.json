@@ -1,0 +1,15 @@
+{
+  "name": "unison-transfers",
+  "displayName": "Unison Transfers",
+  "version": "2.0.0",
+  "description": "Prices, routes and booking links for private airport, cruise terminal and chauffeur transfers across Brisbane, the Gold Coast, the Sunshine Coast, Noosa, Toowoomba, Byron Bay and Northern NSW, Australia.",
+  "author": {
+    "name": "Brazaustra Pty Ltd",
+    "email": "bookings@unisontransfers.com.au",
+    "url": "https://www.unisontransfers.com.au"
+  },
+  "homepage": "https://mcp.unisontransfers.com.au",
+  "license": "MIT",
+  "keywords": ["travel", "airport transfer", "private transfer", "chauffeur", "cruise terminal", "brisbane", "gold coast", "sunshine coast", "byron bay", "australia"],
+  "repository": "https://github.com/unisonfinance/unison-transfers-plugin"
+}

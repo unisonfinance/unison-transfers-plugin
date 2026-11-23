@@ -1,0 +1,7 @@
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "unison-transfers"
+      description: "Unison Transfers prices, routes and booking links"
+      transport: "streamable_http"
+      url: "https://mcp.unisontransfers.com.au/mcp"
