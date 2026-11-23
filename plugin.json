@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "unison-transfers",
-  "version": "2.0.0",
-  "description": "Prices, routes and booking links for Unison Transfers private airport, cruise terminal and chauffeur transfers across Brisbane, the Gold Coast, the Sunshine Coast, Noosa, Toowoomba, Byron Bay and Northern NSW, Australia.",
+  "version": "2.1.0",
+  "description": "Prices, routes and booking links for private airport, cruise terminal and chauffeur transfers across Brisbane, the Gold Coast, the Sunshine Coast, Noosa, Toowoomba, Byron Bay and Northern NSW, Australia, with approximate prices in your own currency for visitors from overseas.",
   "author": {
     "name": "Brazaustra Pty Ltd",
     "email": "bookings@unisontransfers.com.au",
@@ -22,19 +22,22 @@
     "noosa",
     "byron bay",
     "toowoomba",
-    "travel"
+    "travel",
+    "international visitors",
+    "brisbane cruise terminal"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Unison Transfers",
         "shortDescription": "Brisbane, Gold Coast transfers",
-        "longDescription": "Unison Transfers is a licensed private chauffeur and airport transfer operator in South East Queensland and Northern NSW, Australia.\n\nAsk for a transfer between any two places in the region and the app prices it for the date, time and group. It covers Brisbane Airport (BNE), Gold Coast Airport (OOL, Coolangatta), Sunshine Coast Airport (MCY), Ballina Byron Airport (BNK) and the Brisbane International Cruise Terminal, plus Brisbane CBD, South Bank, Fortitude Valley and the Brisbane suburbs and hotels, Surfers Paradise, Broadbeach, Burleigh Heads and the Gold Coast suburbs, the theme parks, Tamborine Mountain, Ipswich, Toowoomba, the Sunshine Coast, Noosa, Byron Bay, Ballina, Kingscliff, Casuarina and the Tweed Coast.\n\nWhat it does:\n- Prices a trip for the date, time, number of passengers and suitcases: each vehicle (executive sedan up to 3 passengers, Mercedes-Benz V-Class up to 7) with its price per vehicle in AUD, drive time and distance, shown as a quote card.\n- Plans an airport pickup from a flight time: when the car should come for an arrival or a departure, with the price.\n- Lists the routes served from or to a place, such as everywhere from Brisbane Airport or the cruise terminal, with starting prices and route pages.\n- Gives the link to the operator's online booking form with the trip details, or to its quote request form for groups over 7, several stops, hourly hire, weddings and events.\n- Explains what every transfer includes (meet and greet with a name board, free waiting, free child seats, tolls and GST included), the cancellation policy and contact details.\n\nLimitations: prices for a trip without a date and time are weekday daytime prices; nights, weekends and some public holidays cost more, and the final price is shown in the booking form before payment. The app does not book, take payment or collect personal details in the chat: the traveller books and pays on the Unison Transfers website. Trips that start and end in New South Wales cannot be booked. No sign-in is needed.",
+        "longDescription": "Unison Transfers is a licensed private chauffeur and airport transfer operator in South East Queensland and Northern NSW, Australia.\n\nAsk for a transfer between any two places in the region and the app prices it for the date, time and group. It covers Brisbane Airport (BNE), Gold Coast Airport (OOL, Coolangatta), Sunshine Coast Airport (MCY), Ballina Byron Airport (BNK) and the Brisbane International Cruise Terminal, plus Brisbane CBD, South Bank, Fortitude Valley and the Brisbane suburbs and hotels, Surfers Paradise, Broadbeach, Burleigh Heads and the Gold Coast suburbs, the theme parks, Tamborine Mountain, Ipswich, Toowoomba, the Sunshine Coast, Noosa, Byron Bay, Ballina, Kingscliff, Casuarina and the Tweed Coast.\n\nWhat it does:\n- Prices a trip for the date, time, number of passengers and suitcases: each vehicle (executive sedan up to 3 passengers, Mercedes-Benz V-Class up to 7) with its price per vehicle in AUD, drive time and distance, shown as a quote card.\n- Plans an airport pickup from a flight time: when the car should come for an arrival or a departure, with the price.\n- Helps visitors from overseas: an approximate price in their own currency beside the AUD price (USD, GBP, EUR, NZD, SGD, JPY and more), local time-zone notes for their flight, and what happens when they land.\n- Lists the routes served from or to a place, such as everywhere from Brisbane Airport or the cruise terminal, with starting prices and route pages.\n- Gives the link to the operator's online booking form with the trip details, or to its quote request form for groups over 7, several stops, hourly hire, weddings and events.\n- Explains what every transfer includes (meet and greet with a name board, free waiting, free child seats, tolls and GST included), the cancellation policy and contact details.\n\nLimitations: prices for a trip without a date and time are weekday daytime prices; nights, weekends and some public holidays cost more, and the final price is shown in the booking form before payment. The app does not book, take payment or collect personal details in the chat: the traveller books and pays on the Unison Transfers website. Trips that start and end in New South Wales cannot be booked. No sign-in is needed.",
         "developerName": "Brazaustra Pty Ltd",
         "category": "Travel",
         "capabilities": [
           "Live trip prices per vehicle",
           "Airport pickup planning from a flight",
+          "Approximate prices in your own currency",
           "Routes from or to any place",
           "Cruise terminal transfers",
           "Booking and quote request links",
@@ -108,7 +111,7 @@
         "demo_recording_url": "https://mcp.unisontransfers.com.au/review/unison-transfers-chatgpt-demo.mp4"
       },
       "publication": {
-        "release_notes": "Version 2: live prices for any trip in South East Queensland and Northern NSW (date, time, passengers and bags), a quote card, airport pickup planning from a flight, routes from or to any place including the Brisbane cruise terminal, five skills, and a new logo."
+        "release_notes": "Version 2.1: approximate prices in the traveller's own currency for visitors from overseas, local time-zone notes (Queensland has no daylight saving; NSW does), and a sixth skill for international visitors. Version 2: live prices for any trip, a quote card, airport pickup planning, routes from or to any place, five skills and a new logo."
       }
     }
   }

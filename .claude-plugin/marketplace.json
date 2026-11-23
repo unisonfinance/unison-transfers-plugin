@@ -1,13 +1,18 @@
 {
   "name": "unison-transfers",
-  "owner": { "name": "Brazaustra Pty Ltd", "email": "bookings@unisontransfers.com.au" },
-  "metadata": { "description": "Unison Transfers: private airport, cruise terminal and chauffeur transfers in South East Queensland and Northern NSW." },
+  "owner": {
+    "name": "Brazaustra Pty Ltd",
+    "email": "bookings@unisontransfers.com.au"
+  },
+  "metadata": {
+    "description": "Unison Transfers: private airport, cruise terminal and chauffeur transfers in South East Queensland and Northern NSW."
+  },
   "plugins": [
     {
       "name": "unison-transfers",
       "source": "./",
       "description": "Prices, routes and booking links for private transfers across Brisbane, the Gold Coast, the Sunshine Coast, Noosa, Toowoomba, Byron Bay and Northern NSW.",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "category": "travel"
     }
   ]
